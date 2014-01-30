@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+
+/*--------------------------------Main----------------------------------------- */
+#main canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 40px;
+ }
+
+#backgroundCanvas {
+    z-index: 1;
+}
+#animationCanvas{
+	z-index: 2;
+}
+#entityCanvas{
+	z-index: 3;
+}
+
+#title {
+	width: 800px ;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#audioControls {
+	width: 140px;
+	margin-top: 60px;
+	margin-right: auto;
+}
+
+body { 
+	background-color: #000000;
+} 
+
+input {
+    width:100px;
+}

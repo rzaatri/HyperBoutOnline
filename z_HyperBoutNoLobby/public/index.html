@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Hyper Bout!</title>
+        <link type="text/css" rel="stylesheet" href="style/main.css">
+        <script type = "text/javascript" src="js/lib/jquery.js"></script>
+        <script type = "text/javascript" src="js/lib/Box2dWeb-2.1.a.3.js"></script>
+        <script type = "text/javascript" src="js/HyperBout.js"></script>
+        <script type = "text/javascript" src="js/HyperPlayer.js"></script>
+        <script type = "text/javascript" src="js/HyperPowerUp.js"></script>
+        <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+        <script type = "text/javascript" src="tests/Loaders.js"></script>
+        <script type="text/javascript">
+            var mute = false;
+            var bgmAud = Engine.prototype.MusicPlayer('audiofiles/Genesis.mp3', true);
+            bgmAud.muted = true;
+            function start() {
+                var test = new Engine();
+            }
+        </script>
+        <script>
+            if(window.location.href.indexOf('unitTest') != -1)
+            {
+                loadcss();
+            }
+        </script>
+    </head>
+
+    <body onload="start()">
+        <div id = "title">
+            <img src="images/HyberboutTitle.gif" id="HBTitleImage" alt="TitleImage" />
+        </div>
+
+        <div id = "audioControls">
+            <a href="pages/help.html" onclick="Popup=window.open('pages/help.html','Popup','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no, width=420,height=400,left=430,top=23'); return false;">
+            How to Play</a>
+            <input type="button" onclick="bgmAud.muted = true ; mute = true" value="Mute" />
+            <br>
+            <input type="button" onclick="bgmAud.muted = false ; mute = false" value="Unmute" />
+        </div>
+
+        <div id="main">
+            <canvas id="backgroundCanvas" height="548" width="1122">Canvas is not supported.</canvas>
+            <canvas id="entityCanvas" height="548" width="1122"></canvas>
+            <canvas id="animationCanvas" height="548" width="1122"></canvas>
+        </div>
+        <div id="game-images">
+            <img src="images/health.png" id="health" alt="healthPowerUp" style="display:none"/>
+            <img src="images/Background.png" id="background" alt="back-ground" style="display:none"/>
+            <img src="images/player/p1standright.png" id="playerStanding" alt="player" style="display:none"/>
+            <img src="images/log.png" id="log" alt="log tiles" style="display:none"/>
+            <img src="images/floor.png" id="floor" alt="floor tiles" style="display:none"/>
+            <img src="images/clouds.png" id="clouds" alt="cloud tiles" style="display:none"/>
+            <img src="images/clouds2.png" id="clouds2" alt="cloud2 tiles" style="display:none"/>
+            <img src="images/clouds3.png" id="clouds3" alt="cloud3 tiles" style="display:none"/>
+            <img src="images/stars/star0.png" id="star0" alt="star0 tiles" style="display:none"/>
+            <img src="images/stars/star1.png" id="star1" alt="star1 tiles" style="display:none"/>
+            <img src="images/stars/star2.png" id="star2" alt="star2 tiles" style="display:none"/>
+            <img src="images/stars/star3.png" id="star3" alt="star3 tiles" style="display:none"/>
+            <img src="images/stars/star4.png" id="star4" alt="star4 tiles" style="display:none"/>
+            <img src="images/stars/star5.png" id="star5" alt="star5 tiles" style="display:none"/>
+            <img src="images/water.png" id="water" alt="water tiles" style="display:none"/>
+            <img src="images/platforms/platformBottomLeft.png" id="bottomLeftPlatform" alt="platform tiles" style="display:none"/>
+            <img src="images/lights/lights0.png" id="lights0" alt="lights0 tiles" style="display:none"/>
+            <img src="images/lights/lights1.png" id="lights1" alt="lights1 tiles" style="display:none"/>
+            <img src="images/lights/lights2.png" id="lights2" alt="lights2 tiles" style="display:none"/>
+            <img src="images/lights/lights3.png" id="lights3" alt="lights3 tiles" style="display:none"/>
+            <img src="images/lights/lights4.png" id="lights4" alt="lights4 tiles" style="display:none"/>
+            <img src="images/lights/lights5.png" id="lights5" alt="lights5 tiles" style="display:none"/>
+            <img src="images/lights/lights6.png" id="lights6" alt="lights6 tiles" style="display:none"/>
+            <img src="images/lights/lights7.png" id="lights7" alt="lights7 tiles" style="display:none"/>
+            <img src="images/lights/lights8.png" id="lights8" alt="lights8 tiles" style="display:none"/>
+            <img src="images/lights/lights9.png" id="lights9" alt="lights9 tiles" style="display:none"/>
+            <img src="images/lights/lights10.png" id="lights10" alt="lights10 tiles" style="display:none"/>
+            <img src="images/lights/lights11.png" id="lights11" alt="lights11 tiles" style="display:none"/>
+            <img src="images/explosions/exp0.png" id="exp0" alt="exp0 tiles" style="display:none"/>
+            <img src="images/explosions/exp1.png" id="exp1" alt="exp1 tiles" style="display:none"/>
+            <img src="images/explosions/exp2.png" id="exp2" alt="exp2 tiles" style="display:none"/>
+            <img src="images/explosions/exp3.png" id="exp3" alt="exp3 tiles" style="display:none"/>
+            <img src="images/explosions/exp4.png" id="exp4" alt="exp4 tiles" style="display:none"/>
+            <img src="images/explosions/exp5.png" id="exp5" alt="exp5 tiles" style="display:none"/>
+            <img src="images/explosions/exp6.png" id="exp6" alt="exp6 tiles" style="display:none"/>
+            <img src="images/explosions/exp7.png" id="exp7" alt="exp7 tiles" style="display:none"/>
+            <img src="images/explosions/exp8.png" id="exp8" alt="exp8 tiles" style="display:none"/>
+            <img src="images/explosions/exp9.png" id="exp9" alt="exp9 tiles" style="display:none"/>
+            <img src="images/explosions/exp10.png" id="exp10" alt="exp1 0 tiles" style="display:none"/>
+        </div>
+
+        <div id = "pointTable">
+            <table border="1">
+                <tr>
+                  <td><FONT COLOR="WHITE">#</FONT></td>
+                  <td><FONT COLOR="WHITE">1</FONT></td>
+                  <td><FONT COLOR="WHITE">2</FONT></td>
+                  <td><FONT COLOR="WHITE">3</FONT></td>
+                  <td><FONT COLOR="WHITE">4</FONT></td>
+                </tr>
+                <tr>
+                  <td><FONT COLOR="WHITE">Health</FONT></td>
+                  <td id="1hp"><FONT COLOR="WHITE">-</FONT></td>
+                  <td id="2hp"><FONT COLOR="WHITE">-</FONT></td>
+                  <td id="3hp"><FONT COLOR="WHITE">-</FONT></td>
+                  <td id="4hp"><FONT COLOR="WHITE">-</FONT></td>
+                </tr>
+                <tr>
+                  <td><FONT COLOR="WHITE">Score</FONT></td>
+                  <td id="1p"><FONT COLOR="WHITE">-</FONT></td>
+                  <td id="2p"><FONT COLOR="WHITE">-</FONT></td>
+                  <td id="3p"><FONT COLOR="WHITE">-</FONT></td>
+                  <td id="4p"><FONT COLOR="WHITE">-</FONT></td>
+                </tr>
+            </table>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br>
+        <script>
+            if(window.location.href.indexOf('unitTest') != -1)
+            {
+                loadtest("tests/lib/jasmine.js");
+                loadtest("tests/lib/jasmine-html.js");
+                loadtest("tests/lib/jasmine-env.js");
+                loadtest("tests/lib/jasmine-jquery.js");
+                loadtest("tests/lib/testem.js");
+                loadtest("tests/HyperPlayerSpec.js");
+                loadtest("tests/CanvasSpec.js");
+                loadtest("tests/ImageSpec.js");
+                loadtest("tests/AudioSpec.js");
+                loadtest("tests/PointTableSpec.js");
+                loadtest("tests/HyperBoutSpec.js");
+            }
+        </script>
+    </body>
+</html>

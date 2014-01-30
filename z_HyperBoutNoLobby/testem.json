@@ -1,0 +1,12 @@
+{
+    "framework" : "jasmine",
+    "src_files": [
+        "public/tests/HyperPlayerSpec.js",
+        "public/tests/HyperBoutSpec.js",
+        "public/js/HyperPlayer.js",
+        "public/js/HyperBout.js",
+        "public/js/lib/Box2dWeb-2.1.a.3.js",
+        "public/js/lib/Box2dWeb-2.1.a.3.min.js",
+        "*.js"
+    ]
+}

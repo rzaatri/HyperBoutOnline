@@ -1,0 +1,47 @@
+October 18:
+Items + Power Ups --> health and shield.
+Fix Jump issues --> Cannot jump after respawn? P3, P4 cannot jump
+Polish game.
+
+October 25:
+Testing --> DUE OCT 31st
+
+Meet in person to settle localhost hosting thingee
+Lobby integration
+Win game report at end game.
+
+November 1:
+Meet in person to settle localhost hosting thingee
+Lobby integration
+Win game report at end game.
+
+Catch All Day
+may be a few requirements/ideas we left out
+
+November 21 --> ALL DONE
+
+** DOCUMENTATION
+
+
+9f435d22-7558-4ca0-be9d-b2bbd51d391c
+
+
+
+
+
+DONE: 
+Falling explosion? 
+September 20:
+*Fix Player Positioning DONE
+Send Projectiles Over Network DONE
+
+September 27:
+Fixed bomb animation + random stuff DONE
+Collision Between Projectile and Player + Health DONE
+Point System DONE
+Game Termination State DONE
+Period of invisibility after respawn? (blink blink? shield?) DONE
+Animations (Player Walking, etc) DONE
+
+TO DO: 
+Respawn after faling off. DONE

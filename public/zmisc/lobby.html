@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "Content-type" content="text/html; charset=utf-8">
+        <title>Welcome to Hyper Bout!</title>
+        <link type="text/css" rel="stylesheet" href="style/lobby.css">
+        <script>
+            function formSubmit()
+            {
+                document.getElementById("usernameForm").submit();
+            }
+        </script>
+        <div id="container">
+   			<h2>Hyper Bout!</h2>
+		</div>
+		<form method="post" id="usernameForm" action="lobby_process.asp">
+			<input name="username" placeholder="Your user name here...">
+			<input value="Submit" type="button" onclick="formSubmit()"> 
+		</form>
+    </head>
+</html>
